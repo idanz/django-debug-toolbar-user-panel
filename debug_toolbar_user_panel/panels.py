@@ -82,6 +82,7 @@ class UserPanel(DebugPanel):
         return _('User')
 
     def nav_subtitle(self):
+        # Fixed bug where you get WSGIRequest with no 'user'
         return hasattr(self.request,'user') and self.request.user.is_authenticated() and self.request.user
 
     def content(self):
